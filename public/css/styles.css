@@ -37,8 +37,14 @@ header a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
 .portrait {
-    width: 250px;
+    width: 10px;
+    height: 10px;
+    /* max-height: auto; */
 }
 
 input{
