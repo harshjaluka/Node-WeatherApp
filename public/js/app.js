@@ -9,7 +9,7 @@ weatherForm.addEventListener('submit', (e) => {
     const location = address.value;
     messageOne.textContent = "Loading...";
     messageTwo.textContent = " ";
-    fetch('http://api.weatherstack.com/current?access_key=69a9072152c0cde18a85a08e14c31c53&query='+location).then((response) =>{
+    fetch('/weather?address='+location).then((response) =>{
     response.json().then((data) => {
         if(!data){
             messageOne.textContent = 'Please Enter A Location';
@@ -18,8 +18,8 @@ weatherForm.addEventListener('submit', (e) => {
             messageOne.textContent = 'Enter A valid location';
         }
         else{
-            messageOne.textContent = data.location.name;
-            messageTwo.textContent = 'Temperature = '+ data.current.temperature;
+            messageOne.textContent = data.location;
+            messageTwo.textContent = 'Temperature = '+ data.temperature;
         }
     });
 });
