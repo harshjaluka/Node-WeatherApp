@@ -49,7 +49,7 @@ app.get('/weather', (rep, res) => {
         }
 
     
-        forecast(latitude, longitude, (forecastError, {temperature, weather_descriptions} = {}) => {
+        forecast(latitude, longitude, (forecastError, {temperature, weather_descriptions, humidity} = {}) => {
             if(forecastError){
                 return res.send(forecastError);
             }
@@ -58,7 +58,8 @@ app.get('/weather', (rep, res) => {
                 location,
                 temperature,
                 weather_descriptions,
-                address: rep.query.address
+                address: rep.query.address,
+                humidity
             });
         });
     });
